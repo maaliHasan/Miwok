@@ -2,11 +2,8 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ListView;
 
-import java.io.LineNumberReader;
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
@@ -14,38 +11,27 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
+        setContentView(R.layout.word_list);
 
         // Create an array of words
-        ArrayList<String> words = new ArrayList<String>();
-        words.add("one");
-        words.add("two");
-        words.add("three");
-        words.add("four");
-        words.add("five");
-        words.add("six");
-        words.add("seven");
-        words.add("eight");
-        words.add("nine");
-        words.add("ten");
+        ArrayList<Word> words = new ArrayList<>();
+        words.add(new Word("one", "one*",R.drawable.number_one));
+        words.add(new Word("two", "two*",R.drawable.number_two));
+        words.add(new Word("three", "three*",R.drawable.number_three));
+        words.add(new Word("four", "four*",R.drawable.number_four));
+        words.add(new Word("five", "five*",R.drawable.number_five));
+        words.add(new Word("six", "six*",R.drawable.number_six));
+        words.add(new Word("seven", "seven*",R.drawable.number_seven));
+        words.add(new Word("eight", "eight*",R.drawable.number_eight));
+        words.add(new Word("nine", "nine*",R.drawable.number_nine));
+        words.add(new Word("ten", "ten*",R.drawable.number_ten));
 
-        LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
-        int listSize = words.size()-1;
-//        for (int i = 0; i < listSize; i++) {
-//            TextView word = new TextView(this);
-//            word.setText(words.get(i));
-//            rootView.addView(word);
-//
-//        }
-        int index=0;
-        while(index<=listSize){
-            TextView word = new TextView(this);
-            word.setText(words.get(index));
-            rootView.addView(word);
-            index++;
+        /* the arrayAdapter except list view with one textview  SO we need to create a custom adapter*/
 
-
-        }
+        ArrayAdapter itemsAdapter = new ArrayAdapter(this, words);
+        ListView listView = (ListView) findViewById(R.id.list);
+        assert listView != null;
+        listView.setAdapter(itemsAdapter);
 
 
     }
