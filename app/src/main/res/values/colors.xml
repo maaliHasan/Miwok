@@ -34,4 +34,8 @@
 
     <!-- Background color for the phrases category -->
     <color name="category_phrases">#16AFCA</color>
+    <!-- text color for the miwok category -->
+    <color name="miwok_word_color">#FFFFFF</color>
+    <color name="image_view_color">#FFF7DA</color>
+    <color name="background_color">#FD8E09</color>
 </resources>
