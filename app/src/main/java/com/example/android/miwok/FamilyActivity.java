@@ -28,7 +28,7 @@ public class FamilyActivity extends AppCompatActivity {
 
         /* the arrayAdapter except list view with one textview  SO we need to create a custom adapter*/
 
-        ArrayAdapter itemsAdapter = new ArrayAdapter(this, words);
+        WordAdapter itemsAdapter = new WordAdapter(this, words);
         ListView listView = (ListView) findViewById(R.id.list);
         assert listView != null;
         listView.setAdapter(itemsAdapter);

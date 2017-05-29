@@ -2,8 +2,6 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -28,7 +26,7 @@ public class PhrasesActivity extends AppCompatActivity {
         words.add(new Word("Come here.", "әnni'nem"));
         /* the arrayAdapter except list view with one textview  SO we need to create a custom adapter*/
 
-        com.example.android.miwok.ArrayAdapter itemsAdapter = new com.example.android.miwok.ArrayAdapter(this, words);
+        WordAdapter itemsAdapter = new WordAdapter(this, words);
 
         ListView listView = (ListView) findViewById(R.id.list);
         assert listView != null;

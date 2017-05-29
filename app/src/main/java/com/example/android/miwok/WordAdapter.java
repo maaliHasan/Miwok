@@ -2,6 +2,7 @@ package com.example.android.miwok;
 
 import android.app.Activity;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +10,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
 
+import static com.example.android.miwok.R.id.imgView;
+
 /**
  * Created by mhasan on 5/28/2017.
  *
  */
 
-public class ArrayAdapter extends android.widget.ArrayAdapter {
+public class WordAdapter extends android.widget.ArrayAdapter {
 
-    public ArrayAdapter(Activity context, ArrayList<Word> words) {
+    public WordAdapter(Activity context, ArrayList<Word> words) {
         super(context, 0, words);
     }
-
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View listItemView = convertView;
@@ -37,7 +38,14 @@ public class ArrayAdapter extends android.widget.ArrayAdapter {
         miwokTextView.setText(currentWord.getMiwokTranslation());
 
         ImageView imgView=(ImageView)listItemView.findViewById(R.id.imgView);
-        imgView.setImageResource(currentWord.getImgView());
+        if(currentWord.hasImageView()){
+            imgView.setImageResource(currentWord.getImgView());
+            imgView.setVisibility(View.VISIBLE);
+        }
+        else{
+            imgView.setVisibility(View.GONE);
+        }
+
         return listItemView;
     }
 }
