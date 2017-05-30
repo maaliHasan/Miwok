@@ -1,23 +1,29 @@
 package com.example.android.miwok;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static android.util.Config.LOGD;
+
 /**
  * Created by mhasan on 5/28/2017.
+ * Custom adapter
  */
 
-public class WordAdapter extends android.widget.ArrayAdapter {
+class WordAdapter extends android.widget.ArrayAdapter {
     public int mColorResourceId;
 
-    public WordAdapter(Activity context, ArrayList<Word> words, int color) {
+    WordAdapter(Activity context, ArrayList<Word> words, int color) {
         super(context, 0, words);
         mColorResourceId = color;
     }
@@ -31,7 +37,7 @@ public class WordAdapter extends android.widget.ArrayAdapter {
 
         }
 
-        Word currentWord = (Word) getItem(position);
+        final Word currentWord = (Word) getItem(position);
         TextView defaultTextView = (TextView) listItemView.findViewById(R.id.deafault_text_view);
         defaultTextView.setText(currentWord.getDefaultTranslation());
 
@@ -49,7 +55,7 @@ public class WordAdapter extends android.widget.ArrayAdapter {
         View textContainer = listItemView.findViewById(R.id.text_container);
         int color = ContextCompat.getColor(getContext(), mColorResourceId);
         textContainer.setBackgroundColor(color);
-
         return listItemView;
     }
+
 }

@@ -4,23 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="@dimen/list_item_height"
-    android:orientation="horizontal"
-    android:background="@color/tan_background">
-
+    android:background="@color/tan_background"
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/imgView"
         android:layout_width="@dimen/image_view_width"
         android:layout_height="@dimen/image_view_width"
-         />
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 
     <LinearLayout
         android:id="@+id/text_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="16dp"
-       >
+        android:paddingLeft="16dp">
 
         <TextView
             android:id="@+id/miwok_text_view"
@@ -31,7 +30,9 @@
             android:textColor="@color/miwok_word_color"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:text="lutii" />
+            tools:text="lutii"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
 
         <TextView
             android:id="@+id/deafault_text_view"
@@ -39,7 +40,18 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="top"
-            tools:text="one" />
+            tools:text="one"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/play_button"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
+
+
 
     </LinearLayout>
 
