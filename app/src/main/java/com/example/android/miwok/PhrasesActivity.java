@@ -34,6 +34,7 @@ public MediaPlayer mMediaPlayer;
         words.add(new Word("I’m coming.", "әәnәm",R.raw.phrase_im_coming));
         words.add(new Word("Let’s go.", "yoowutis",R.raw.phrase_lets_go));
         words.add(new Word("Come here.", "әnni'nem",R.raw.phrase_come_here));
+
         /* the arrayAdapter except list view with one textview  SO we need to create a custom adapter*/
 
         WordAdapter itemsAdapter = new WordAdapter(this, words,R.color.category_phrases);
