@@ -17,57 +17,28 @@ package com.example.android.miwok;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView familyView, colorsView, numbersView, phrasesView;
+public class MainActivity extends AppCompatActivity  {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
-    }
 
-    public void init() {
-        familyView = (TextView) findViewById(R.id.family);
-        phrasesView = (TextView) findViewById(R.id.phrases);
-        numbersView = (TextView) findViewById(R.id.numbers);
 
-        colorsView = (TextView) findViewById(R.id.colors);
-        phrasesView.setOnClickListener(this);
-        numbersView.setOnClickListener(this);
-        colorsView.setOnClickListener(this);
-        familyView.setOnClickListener(this);
-    }
+        ViewPager viewPager= (ViewPager) findViewById(R.id.viewpager);
+        CategoryAdapter mCategoryAdapter= new CategoryAdapter(this,getSupportFragmentManager());
+        viewPager.setAdapter(mCategoryAdapter);
 
-    @Override
-    public void onClick(View view) {
-        int id = view.getId();
-        Intent intent;
-        switch (id) {
-            case R.id.family:
-                intent = new Intent(this, FamilyActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.phrases:
-                intent = new Intent(this, PhrasesActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.colors:
-                intent = new Intent(this, ColorsActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.numbers:
-                intent = new Intent(this, NumbersActivity.class);
-                startActivity(intent);
-                break;
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 
-        }
+        tabLayout.setupWithViewPager(viewPager);
 
     }
-
-
 }
